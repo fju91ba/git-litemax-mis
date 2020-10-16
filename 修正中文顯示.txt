@@ -1,0 +1,22 @@
+Coding 文件 con profile mit odin glob global 正常
+執行了
+
+1 git config --global gui.encoding utf-8
+查看 %USERPROFILE%\.gitconfig 文件中也有
+
+1 [gui]
+2   encoding = utf-8
+在 git gui 和 gitk 中也設置了 utf-8 編碼和中文字體，但是在 gitk 中查看 comment 中文信息還是亂碼。
+
+然後添加 [i18n] 配置：
+
+1 [i18n]
+2   commitencoding = utf-8
+問題依舊，中文還是顯示亂碼。
+
+最後發現 [i18n] 中還有一項配置：
+
+1   logoutputencoding = utf8
+懷疑是這個 utf8 的問題，改為 utf-8 果然一切正常了！真是個奇葩的問題！
+
+gitk中文亂碼問題處理
